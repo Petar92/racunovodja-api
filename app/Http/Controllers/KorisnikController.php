@@ -17,14 +17,16 @@ class KorisnikController extends Controller
     ) {
         $this->_korisnikService = $korisnikService;
         $this->_validator = $validator;
-        $this->middleware('auth:api');
+        //$this->middleware('auth:api');
     }
 
     public function detalji()
     {
         try {
             $detalji = $this->_korisnikService->detaljiLogovanogKorisnika();
-            return $this->successfullResponse($detalji);
+            echo $detalji->id;
+            return view('detaljiKorisnika', ['detalji' => $detalji]);
+            //return $this->successfullResponse($detalji);
         } catch (\Exception $e) {
             return $this->systemErrorResponse($e);
         }

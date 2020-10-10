@@ -50,7 +50,7 @@ class KorisnikService
 
     public function detaljiLogovanogKorisnika()
     {
-        return $this->_korisnikRepository->detaljiKorisnika(auth()->user()->id);
+        return $this->_korisnikRepository->detaljiKorisnika(/* auth()->user()->id */ 1);
     }
 
     public function azurirajDetaljeLogovanogKorisnika($data)
